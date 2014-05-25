@@ -12,7 +12,7 @@ makeCacheMatrix <- function(x = matrix()) { # woohoo initialize 'x' as matrix
     get <- function() x # setting 'get' function to retrieve matrix in the future
     setsolve <- function(solve) m <<- solve # save the matrix passed in and saves to 'm'
     getsolve <- function() m # retrieve the matrix 'm'
-    list(set = set, get = get, # functions
+    list(set = set, get = get, # setting functions to a list
          setsolve = setsolve, 
          getsolve = getsolve)
 
