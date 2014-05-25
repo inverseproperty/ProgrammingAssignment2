@@ -9,11 +9,11 @@ makeCacheMatrix <- function(x = matrix()) { # woohoo initialize x as matrix
         x <<- y  # setting x to y function for current environment and parent environment
         m <<- NULL # poor m is still NULL
     }
-    get <- function() x # setting 'get' function to retrieve matrix in the future
-    setsolve <- function(solve) m <<- solve #save the matrix passed in and saves to m
-    getsolve <- function() m #retrieve the matrix m
-    list(set = set, get = get, #functions
-         setsolve = setsolve,
+    get <- function() x # setting 'get' FUN to retrieve matrix in the future
+    setsolve <- function(solve) m <<- solve # save the matrix passed in and saves to m
+    getsolve <- function() m # retrieve the matrix m
+    list(set = set, get = get, # functions
+         setsolve = setsolve, 
          getsolve = getsolve)
 
 }
@@ -31,14 +31,7 @@ cacheSolve <- function(x, ...) {
     data <- x$get() #use get function to get matrix and place in 'data'
     m <- solve(data, , ...) #set 'm' to be inverse of the matrix in 'data'
     x$setsolve(m) #save the inverse matrix into variable m
-    m # return m to console, go team!
+    m           # return m to console, go team!
 }
 
-a <- makeCacheMatrix()
-a
-class(a)
-class(a$set)
 
-a$set(matrix(8:23, 4, 4))          #set the matrix
-a$get()
-cacheSolve(a)
