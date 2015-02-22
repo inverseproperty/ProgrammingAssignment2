@@ -1,3 +1,5 @@
+# Second programming assignment for 'R Programming'
+# from Coursera, Johns Hopkins
 # Two functions to initialize a matrix, then create
 # an inverse of that matrix, store the inverse of 
 # the matrix in cache, and if the function is run 
@@ -15,11 +17,9 @@ makeCacheMatrix <- function(x = matrix()) { # woohoo initialize 'x' as matrix
     list(set = set, get = get, # setting functions to a list
          setsolve = setsolve, 
          getsolve = getsolve)
-
 }
 
 cacheSolve <- function(x, ...) { ## Return a matrix that is the inverse of 'x'
-        
     m <- x$getsolve() # set 'm' to acquire the cached inverse matrix
     if(!is.null(m)) { # check to see if 'm' has anything in it
         message("getting cached data") # the message to be printed when the cache is called
@@ -31,9 +31,12 @@ cacheSolve <- function(x, ...) { ## Return a matrix that is the inverse of 'x'
     m           # return 'm' to console, go team!
 }
 
-# test the function
-# x = rbind(c(1, -1/4), c(-1/4, 1))
-# m = makeCacheMatrix(x)
+##### test the function #####
+#                           #
+#                           #
+#############################
+# x <- matrix(rbinom(10*10, 1, .5), ncol=10) #set a 10 by 10 matrix to test
+# m <- makeCacheMatrix(x)
 # m$get()
-#cacheSolve(m)  # test the second function
-#cacheSolve(m)  # test the cache in second function
+# cacheSolve(m)  # test the second function
+# cacheSolve(m)  # test the cache in second function
